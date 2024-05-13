@@ -9,7 +9,18 @@ public class Circle extends Shape {
     }
 
     @Override
+    public int[] getCenter(){
+        return new int[]{ radius/2 , radius/2 };
+    }
+
+    @Override
     public void draw(Graphics g) {
         g.drawOval(x, y, radius, radius);
+    }
+
+    @Override
+    public void setPosition(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }

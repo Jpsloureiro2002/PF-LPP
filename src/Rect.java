@@ -10,7 +10,20 @@ public class Rect extends Shape {
     }
 
     @Override
+    public int[] getCenter(){
+        x = (int) (width / 2);
+        y = (int) (height / 2);
+        return new int[]{ x , y };
+    }
+
+    @Override
     public void draw(Graphics g) {
         g.drawRect(x, y, width, height);
+    }
+
+    @Override
+    public void setPosition(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }
