@@ -12,12 +12,15 @@ public class App extends JPanel {
         setLayout(null);  // Usar layout nulo para posicionar shapes livremente
 
         JButton btnAddShape = new JButton("Adicionar Forma");
+        JButton btnCalcAr = new JButton("Calcular Área");
         btnAddShape.addActionListener(e -> promptForShape());
-
-        JFrame frame = new JFrame("Formas Geométricas Interativas");
+        
+        JFrame frame = new JFrame("Planta de Casa");
+        btnCalcAr.addActionListener(e -> calArea(frame));
         frame.setLayout(new BorderLayout());
         frame.add(this, BorderLayout.CENTER);
-        frame.add(btnAddShape, BorderLayout.SOUTH);
+        frame.add(btnAddShape, BorderLayout.NORTH);
+        frame.add(btnCalcAr, BorderLayout.SOUTH);
         frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -67,10 +70,25 @@ public class App extends JPanel {
                     currentShape = new Circle(0, 0, radius);
                     break;
                 case "Triângulo":
-                    // Implementar lógica para triângulo
+                    int base = Integer.parseInt(JOptionPane.showInputDialog("Base:"));
+                    int triHeight = Integer.parseInt(JOptionPane.showInputDialog("Altura:"));
+                    currentShape = new Triangle(base, triHeight);
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Forma desconhecida: " + choice);
                     break;
             }
         }
+    }
+
+    private void calArea(JFrame frame){
+        double area = 0;
+        for (Shape shape : shapes) {
+            area += shape.calcArea();
+        }
+
+        System.out.println(area);
+        JOptionPane.showMessageDialog(frame, String.format("%.2f m^2", area), "Área", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override

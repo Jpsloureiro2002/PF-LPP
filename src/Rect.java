@@ -26,4 +26,9 @@ public class Rect extends Shape {
         this.x = x;
         this.y = y;
     }
+
+    @Override
+    public double calcArea(){
+        return width * height;
+    }
 }

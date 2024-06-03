@@ -23,4 +23,9 @@ public class Circle extends Shape {
         this.x = x;
         this.y = y;
     }
+
+    @Override
+    public double calcArea(){
+        return Math.PI * Math.pow(this.radius, 2);
+    }
 }

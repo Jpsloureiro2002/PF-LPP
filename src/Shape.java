@@ -12,5 +12,6 @@ abstract class Shape {
     }
  
     public abstract int[] getCenter();
+    public abstract double calcArea();
 
 }
