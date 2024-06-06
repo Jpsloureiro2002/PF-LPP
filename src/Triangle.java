@@ -2,12 +2,46 @@ import java.awt.*;
 
 public class Triangle extends Shape {
     private int[] xPoints, yPoints;
+    private int base, height;
 
     public Triangle(int base, int height) {
-        // Calculate the coordinates based on the base and height
+        super(0,0,Color.BLACK);
         int halfBase = base / 2;
         xPoints = new int[]{-halfBase, halfBase, 0};
         yPoints = new int[]{0, 0, -height};
+        this.base = base;
+        this.height = height;
+    }
+    public Triangle() {
+        super(0,0,Color.BLACK);
+        int base = 100;
+        int height = 100;
+        int halfBase = base / 2;
+        xPoints = new int[]{-halfBase, halfBase, 0};
+        yPoints = new int[]{0, 0, -height};
+        this.base = base;
+        this.height = height;
+    }
+
+    public Triangle(Triangle others) {
+        super(0,0,Color.BLACK);
+        xPoints = others.getxPoints();
+        yPoints = others.getyPoints();
+        this.base = 0;
+        this.height = 0;
+    }
+
+    public void setxPoints(int[] xPoints) {
+        this.xPoints = xPoints;
+    }
+    public void setyPoints(int[] yPoints) {
+        this.yPoints = yPoints;
+    }
+    public int[] getxPoints() {
+        return xPoints;
+    }
+    public int[] getyPoints() {
+        return yPoints;
     }
 
     @Override
@@ -45,4 +79,17 @@ public class Triangle extends Shape {
         int height = Math.abs(yPoints[2] - yPoints[0]);
         return (base * height) / 2.0;
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + " com altura de " + this.height + " e base de " + this.base;
+    }
+
+    @Override
+    public void print(){
+        System.out.println(toString());
+    }
+    
+
+    
 }
