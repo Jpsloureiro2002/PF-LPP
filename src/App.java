@@ -52,7 +52,7 @@ public class App extends JPanel {
             @Override
             public void mouseMoved(MouseEvent e) {
                 if (currentShape != null) {
-                    currentShape.setPosition(e.getX() - currentShape.getCenter()[0], e.getY() - currentShape.getCenter()[1]);
+                    currentShape.setPosition(e.getX(), e.getY());
                     repaint();
                 }
             }
@@ -100,7 +100,7 @@ public class App extends JPanel {
         }
 
         System.out.println(area);
-        JOptionPane.showMessageDialog(frame, String.format("%.2f m^2", area), "Área", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(frame, String.format("%.2f m^2", area/100), "Área", JOptionPane.INFORMATION_MESSAGE);
     }
     private void printShapes() {
         if (shapes.isEmpty()) {
@@ -138,7 +138,7 @@ public class App extends JPanel {
         });
     
         // Exibe o diálogo
-        dialog.setLocationRelativeTo(null); // Centraliza o diálogo na tela
+        dialog.setLocationRelativeTo(null); 
         dialog.setVisible(true);
     }
     
