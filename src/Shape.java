@@ -10,10 +10,16 @@ public abstract class Shape implements Cloneable {
         this.color = color;
     }
 
+    public Shape() {
+        this.x = 0;
+        this.y = 0;
+        this.color = Color.white;
+    }
+
     public Shape(Shape other) {
         this.x = other.x;
         this.y = other.y;
-        this.color = new Color(other.color.getRGB()); // cria uma cópia da cor para evitar aliasing
+        this.color = new Color(other.color.getRGB());
     }
 
     public abstract void draw(Graphics g);
@@ -30,10 +36,10 @@ public abstract class Shape implements Cloneable {
     public Shape clone() {
         try {
             Shape cloned = (Shape) super.clone();
-            cloned.color = new Color(this.color.getRGB()); // Clona a cor para assegurar que é uma cópia profunda
+            cloned.color = new Color(this.color.getRGB());
             return cloned;
         } catch (CloneNotSupportedException e) {
-            throw new AssertionError(); // Não deveria acontecer
+            throw new AssertionError();
         }
     }
 
@@ -59,3 +65,5 @@ public abstract class Shape implements Cloneable {
         System.out.println(this.toString());
     }
 }
+
+

@@ -17,7 +17,12 @@ public class Square extends Rect {
     public void setLado(int lado) {
         this.lado = lado;
     }
-
-
-
 }
+
+
+
+
+
+
+
+

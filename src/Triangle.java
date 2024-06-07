@@ -73,9 +73,7 @@ public class Triangle extends Shape {
 
     @Override
     public double calcArea() {
-        // Base is the distance between the first two points
         int base = Math.abs(xPoints[1] - xPoints[0]);
-        // Height is the distance from the base to the top vertex
         int height = Math.abs(yPoints[2] - yPoints[0]);
         return (base * height) / 2.0;
     }
@@ -89,7 +87,7 @@ public class Triangle extends Shape {
     public void print(){
         System.out.println(toString());
     }
-    
-
-    
 }
+
+
+
